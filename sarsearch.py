@@ -45,7 +45,7 @@ def visualize_results(image_path, results):
 
         # Add class name, confidence, and geolocation
         label = f"{class_name} ({float(result['confidence']):.2f})"
-        geo_text = f"Lat: {result['latitude']:.6f}, Lon: {result['longitude']:.6f}"
+        geo_text = f"Lat: {result['longitude']:.6f}, Lon: {result['latitude']:.6f}"
         cv2.putText(image, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         cv2.putText(image, geo_text, (x, y + h + 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
@@ -98,14 +98,17 @@ def main():
     if not results:
         print("No objects detected in the images.")
         return
-
     corrected_results = results
     if results:
-    # if corrected_results:
-        center = (corrected_results[0]['latitude'], corrected_results[0]['longitude'])
+        # Reverse the order of latitude and longitude for the map center
+        center = (corrected_results[0]['longitude'], corrected_results[0]['latitude'])  # Reversed
         map_obj = create_map(center)
+
         for result in corrected_results:
-            location = (result['longitude'],result['latitude'])
+            # Reverse the order of latitude and longitude for markers
+            location = (result['longitude'], result['latitude'])  # Reversed
+            print(f"Marker location: Longitude={location[0]}, Latitude={location[1]}")  # Debugging
+
             popup_text = f"Class: {result['class_name']}, Confidence: {result['confidence']}"
             add_marker(map_obj, location, popup_text)
 
@@ -117,10 +120,9 @@ def main():
     for img_path in img_paths:
         visualize_results(img_path, corrected_results)
 
-    # Print results
+    # Print results with reversed latitude and longitude
     for result in corrected_results:
-        print(f"Latitude: {result['latitude']}, Longitude: {result['longitude']}, "
-              f"Class: {result['class_name']}, Confidence: {result['confidence']}")
-
+        print(f"Longitude: {result['longitude']}, Latitude: {result['latitude']}, "
+            f"Class: {result['class_name']}, Confidence: {result['confidence']}")
 if __name__ == "__main__":
     main()

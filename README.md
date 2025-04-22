@@ -24,3 +24,9 @@ Below is an example of the system's output:
 
 ![Example Output](output_image.jpg)
 
+## Example Output of HTML
+
+Below is an example of the system's output:
+
+![Example Output](html_example.jpg)
+
