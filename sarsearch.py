@@ -105,7 +105,7 @@ def main():
         center = (corrected_results[0]['latitude'], corrected_results[0]['longitude'])
         map_obj = create_map(center)
         for result in corrected_results:
-            location = (result['latitude'], result['longitude'])
+            location = (result['longitude'],result['latitude'])
             popup_text = f"Class: {result['class_name']}, Confidence: {result['confidence']}"
             add_marker(map_obj, location, popup_text)
 
