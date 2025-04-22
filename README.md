@@ -22,5 +22,5 @@ Below is an example of the system's input:
 
 Below is an example of the system's output:
 
-![Example Output](output_image.JPG)
+![Example Output](output_image.jpg)
 
