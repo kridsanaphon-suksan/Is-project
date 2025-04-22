@@ -26,7 +26,7 @@ Below is an example of the system's output:
 
 ## Example Output of HTML
 
-Below is an example of the system's output:
+Below is an example of the system's html output:
 
 ![Example Output](html_example.jpg)
 
