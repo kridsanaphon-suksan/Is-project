@@ -11,3 +11,16 @@ This project is part of Independent Study that uses YOLO for object detection an
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/SAR-System.git
+
+## Example Input
+
+Below is an example of the system's input:
+
+![Example Output](test_image.JPG)
+
+## Example Output
+
+Below is an example of the system's output:
+
+![Example Output](output_image.JPG)
+
