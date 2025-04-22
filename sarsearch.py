@@ -58,6 +58,11 @@ def visualize_results(image_path, results):
     window_height = int(image.shape[0] * scale)
     resized_image = cv2.resize(image, (window_width, window_height))
 
+    # Save the annotated image
+    output_image_path = "output_image.jpg"
+    cv2.imwrite(output_image_path, image)
+    print(f"Annotated image saved as: {output_image_path}")
+
     # Display the image
     cv2.imshow('Annotated Image', resized_image)
     cv2.waitKey(0)
