@@ -10,7 +10,7 @@ This project is part of Independent Study that uses YOLO for object detection an
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/kridsanaphon-suksan/SAR-System.git
+   git clone https://github.com/kridsanaphon-suksan/Is-project.git
 
 ## Example Input
 
