@@ -103,7 +103,9 @@ class GeoLocator:
 
     def get_rotated_point(self, object_pixel_x, object_pixel_y, camera_matrix, rotation_matrix, altitude):
         camera_point = np.linalg.inv(camera_matrix) @ np.array([object_pixel_x, object_pixel_y, 1])
-        camera_point *= altitude
+        focal_length_px = camera_matrix[0, 0]
+        nomalized_camera_point = altitude / focal_length_px
+        camera_point *= nomalized_camera_point
         return rotation_matrix @ camera_point
 
     def translate_coordinates(self, camera_coordinates, drone_position, drone_crs_epsg, wgs84_epsg):
